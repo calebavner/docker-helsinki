@@ -1,0 +1,66 @@
+1 - Clean the Docker daemon by removing all images and containers.
+
+	Removing all containers
+
+		C:\Users\avner>docker container prune
+		WARNING! This will remove all stopped containers.
+		Are you sure you want to continue? [y/N] y
+		Deleted Containers:
+		229f5c4a808da26c455a8ef8e54595feab2c014440bdf69c220c10e10b5fd95a
+		e12561daa5d72bd4d7c39783356cec4d1a95dbe6166437b9276a57deeb971473
+		161c306cf03d112ce5a74ef94d1dffd8748560b7a8ae1476ce36f392bd74c74f
+
+	Before Remove Containers:
+
+		CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                      PORTS     NAMES
+		229f5c4a808d   nginx                              "/docker-entrypoint.…"   14 minutes ago   Exited (0) 20 seconds ago             c3
+		e12561daa5d7   nginx                              "/docker-entrypoint.…"   14 minutes ago   Exited (0) 3 minutes ago              c2
+		161c306cf03d   nginx                              "/docker-entrypoint.…"   14 minutes ago   Exited (0) 4 minutes ago              c1
+
+	After Remove Containers:
+
+		C:\Users\avner>docker ps -a
+		CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+		C:\Users\avner>
+
+	Removing image NGNIX
+
+		C:\Users\avner>docker rmi nginx
+		Untagged: nginx:latest
+		Untagged: nginx@sha256:84c52dfd55c467e12ef85cad6a252c0990564f03c4850799bf41dd738738691f
+		Deleted: sha256:b690f5f0a2d535cee5e08631aa508fef339c43bb91d5b1f7d77a1a05cea021a8
+		Deleted: sha256:2599673318db03e2df10bca9b4167be668b9579d72c3cedd1436a0ddcbc4686f
+		Deleted: sha256:3dfa00af383371dcbb76086fde405df32b75247bdf6db81110d992284140c5a3
+		Deleted: sha256:22b6d0744dd5a77166622ec69cc6520f63c9df0dd65b9c96934658c3684aef14
+		Deleted: sha256:da1a2f0bf2f9a1e0eaf448084f492dfe868dc0a64ca3e0e30f3b9be6ded452f0
+		Deleted: sha256:9cf4de78149512efb3285ea0da170ebcd38cdca48d5eb90030400663db6facfb
+		Deleted: sha256:61901066ba33b727b13c970b9d7b7ed9a3056e30de96e835c9b01f4e73c4659a
+		Deleted: sha256:fb1bd2fc52827db4ce719cc1aafd4a035d68bc71183b3bc39014f23e9e5fa256
+
+	Before remove image:
+
+		C:\Users\avner>docker images
+		REPOSITORY                  TAG               IMAGE ID       CREATED        SIZE
+		ms-gateway                  latest            cb1cdb076b89   26 hours ago   377MB
+		ms-clientes                 latest            fe23293e4e64   2 days ago     398MB
+		ms-avaliador                latest            bc020a3662bc   2 days ago     375MB
+		ms-cartoes                  latest            c9bf0c70da8b   2 days ago     399MB
+		ms-server-discovery         latest            994b96928e64   4 days ago     383MB
+		quay.io/keycloak/keycloak   23.0.6            7845344781b3   7 days ago     459MB
+		nginx                       latest            b690f5f0a2d5   3 months ago   187MB <- IMAGE NGINX
+		rabbitmq                    3.12-management   079f3d2cf30a   8 months ago   246MB 
+
+	After remove image:
+
+		C:\Users\avner>docker images
+		REPOSITORY                  TAG               IMAGE ID       CREATED        SIZE
+		ms-gateway                  latest            cb1cdb076b89   26 hours ago   377MB
+		ms-clientes                 latest            fe23293e4e64   2 days ago     398MB
+		ms-avaliador                latest            bc020a3662bc   2 days ago     375MB
+		ms-cartoes                  latest            c9bf0c70da8b   2 days ago     399MB
+		ms-server-discovery         latest            994b96928e64   4 days ago     383MB
+		quay.io/keycloak/keycloak   23.0.6            7845344781b3   7 days ago     459MB
+		rabbitmq                    3.12-management   079f3d2cf30a   8 months ago   246MB
+
+				

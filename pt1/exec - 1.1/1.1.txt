@@ -1,0 +1,22 @@
+1 - Start 3 containers from an image that does not automatically exit (such as nginx) in detached mode.
+
+	docker run --name <container name> -d nginx
+
+	out:
+
+		CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                     PORTS     NAMES
+		229f5c4a808d   nginx                              "/docker-entrypoint.…"   12 seconds ago   Up 11 seconds              80/tcp    c3
+		e12561daa5d7   nginx                              "/docker-entrypoint.…"   16 seconds ago   Up 15 seconds              80/tcp    c2
+		161c306cf03d   nginx                              "/docker-entrypoint.…"   34 seconds ago   Up 34 seconds              80/tcp    c1
+
+2 - Stop two of the containers and leave one container running.
+
+	docker stop c1
+	docker stop c2
+
+	out:
+
+		CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                      PORTS     NAMES
+		229f5c4a808d   nginx                              "/docker-entrypoint.…"   10 minutes ago   Up 10 minutes               80/tcp    c3
+		e12561daa5d7   nginx                              "/docker-entrypoint.…"   10 minutes ago   Exited (0) 6 seconds ago              c2
+		161c306cf03d   nginx                              "/docker-entrypoint.…"   10 minutes ago   Exited (0) 11 seconds ago             c1
