@@ -1,0 +1,25 @@
+1 - Running devopsdockeruh/simple-web-service:ubuntu
+
+	docker run -d --name atv devopsdockeruh/simple-web-service:ubuntu
+
+2 - Access container and reading logs
+
+	docker exec -it atv bash
+
+3 - Show logs and secret message
+
+	tail -f ./text.log
+
+	Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+	2024-02-14 11:36:38 +0000 UTC
+	2024-02-14 11:36:40 +0000 UTC
+	2024-02-14 11:36:42 +0000 UTC
+	2024-02-14 11:36:44 +0000 UTC
+	2024-02-14 11:36:46 +0000 UTC
+	Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+	2024-02-14 11:36:48 +0000 UTC
+	2024-02-14 11:36:50 +0000 UTC
+	2024-02-14 11:36:52 +0000 UTC
+	2024-02-14 11:36:54 +0000 UTC
+	2024-02-14 11:36:56 +0000 UTC
+	Secret message is: 'You can find the source code here: https://github.com/docker-hy'

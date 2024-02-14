@@ -1,0 +1,19 @@
+1 - Running devopsdockeruh/simple-web-service:alpine
+
+	docker run -it --name atv devopsdockeruh/simple-web-service:alpine
+
+2 - Access the container
+
+	docker exec -it atv sh
+
+3 - Show secret message
+
+	tail -f ./text.log
+
+	Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+	2024-02-14 12:44:02 +0000 UTC
+	2024-02-14 12:44:04 +0000 UTC
+	2024-02-14 12:44:06 +0000 UTC
+	2024-02-14 12:44:08 +0000 UTC
+	2024-02-14 12:44:10 +0000 UTC
+	Secret message is: 'You can find the source code here: https://github.com/docker-hy'
